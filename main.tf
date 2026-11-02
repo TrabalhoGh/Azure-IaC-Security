@@ -49,3 +49,36 @@ resource "azurerm_network_security_group" "security_nsg" {
     project     = "Azure-IaC-Security"
   }
 }
+
+
+resource "azurerm_storage_account" "secure_storage" {
+  name                     = "stiacsecuritylab001"
+  resource_group_name      = azurerm_resource_group.security_lab.name
+  location                 = azurerm_resource_group.security_lab.location
+  account_tier             = "Standard"
+  account_replication_type = "ZRS"
+
+  min_tls_version                 = "TLS1_2"
+  https_traffic_only_enabled      = true
+  allow_nested_items_to_be_public = false
+  shared_access_key_enabled       = false
+  public_network_access_enabled   = false
+
+  blob_properties {
+    versioning_enabled = true
+
+    delete_retention_policy {
+      days = 7
+    }
+
+    container_delete_retention_policy {
+      days = 7
+    }
+  }
+
+  tags = {
+    environment = "lab"
+    project     = "Azure-IaC-Security"
+    managed_by  = "Terraform"
+  }
+}
