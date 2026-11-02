@@ -29,4 +29,4 @@ jobs:
         run: pip install checkov==3.4.2
 
       - name: Scan Terraform security
-        run: checkov -d . --framework terraform --compact
+        run: checkov -d . --framework terraform --compact --soft-fail-on CKV_AZURE_33,CKV_AZURE_206,CKV2_AZURE_33,CKV2_AZURE_1

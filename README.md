@@ -64,6 +64,8 @@ This demonstrates automated detection and validation of Infrastructure as Code s
 
 The Storage Account uses ZRS replication, but the replication policy remains unresolved. These findings are retained as documented limitations rather than suppressed.
 
+The four known findings are explicitly configured as non-blocking exceptions in the CI pipeline for this educational lab. They remain visible in Checkov reports and require investigation before any production deployment. New findings outside this exception list remain blocking.
+
 ## Deployment Status
 
 This project was developed and tested locally using Terraform validation and static security scanning.
