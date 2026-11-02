@@ -1,0 +1,26 @@
+
+# Terraform - arquivos locais
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Variaveis e credenciais locais
+*.tfvars
+*.tfvars.json
+.env
+.env.*
+
+# Ambiente virtual Python
+.venv/
+__pycache__/
+*.pyc
+
+# Arquivos locais do VS Code
+.vscode/
